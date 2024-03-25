@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\C_Todo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[C_Todo::class,'index']);
+Route::post('/todo',[C_Todo::class,'create']);
+Route::put('/todo/{td-id}',[C_Todo::class,'edit']);
+Route::delete('/todo/{td_id}',[C_Todo::class,'destroy']);
